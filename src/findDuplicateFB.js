@@ -19,9 +19,11 @@ const reducer = function(key,values) {
     return result;
 }
 
-print("lets start");
+print("start map-reduce");
 db.accounts.mapReduce(mapper, reducer, {out: { merge:"findDupMP"} } )
 print("done map-reduce");
+print("total accounts");
+print(db.accounts.count());
 print("total FB");
 print(db.findDupMP.find({"value":1}).count());
 print("possibile FB duplicate")
